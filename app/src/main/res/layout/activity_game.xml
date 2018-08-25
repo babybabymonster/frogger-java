@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Game">
+    tools:context=".GameActivity">
+
+    <com.example.alice.frogger.FroggerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/froggerview"/>
 
 </android.support.constraint.ConstraintLayout>
