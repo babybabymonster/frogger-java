@@ -1,5 +1,6 @@
 package com.example.alice.frogger;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 
 public class LogsLane extends ArrayList<Log> {
 
-    private float speed;
+    public float speed;
 
     LogsLane(int num, float v, int floor) {
         speed = v;
@@ -20,9 +21,9 @@ public class LogsLane extends ArrayList<Log> {
 
     }
 
-    public void draw(Canvas c, Paint p) {
+    public void draw(Canvas c, Paint p, Bitmap logp) {
         for(Log l : this) {
-            l.draw(c, p);
+            l.draw(c, p, logp);
         }
     }
 
@@ -33,13 +34,13 @@ public class LogsLane extends ArrayList<Log> {
             for(Log l : this) {
                 l.x += speed;
                 if(l.x > Game.MAX_X + Game.GRID_SIZE)
-                    l.x = 0 - Game.GRID_SIZE;
+                    l.x = 0 - l.w;
             }
 
         } else {
             // moving left
             for(Log l : this) {
-                l.x -= speed;
+                l.x += speed;
                 if(l.x + l.w < 0)
                     l.x = Game.MAX_X + Game.GRID_SIZE;
             }

@@ -1,5 +1,6 @@
 package com.example.alice.frogger;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -15,11 +16,13 @@ public class Car extends Entity {
     }
 
     @Override
-    public void draw(Canvas c, Paint p) {
+    public void draw(Canvas c, Paint p, Bitmap carp) {
         float cw = c.getWidth();
         float ch = c.getHeight();
 
-        p.setColor(Color.GRAY);
-        c.drawRect(x * cw, y * ch, (x + w) * cw, (y + h) * ch, p);
+        carp = Bitmap.createScaledBitmap(carp, (int) (w * cw), (int) (h * ch), true);
+        c.drawBitmap(carp, x * cw, y * ch, p);
+//        p.setColor(Color.GRAY);
+//        c.drawRect(x * cw, y * ch, (x + w) * cw, (y + h) * ch, p);
     }
 }

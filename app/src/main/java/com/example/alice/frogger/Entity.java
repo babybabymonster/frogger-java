@@ -1,5 +1,6 @@
 package com.example.alice.frogger;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
@@ -14,5 +15,5 @@ public abstract class Entity {
         this.y = y;
     }
 
-    public abstract void draw(Canvas c, Paint p);
+    public abstract void draw(Canvas c, Paint p, Bitmap pic);
 }

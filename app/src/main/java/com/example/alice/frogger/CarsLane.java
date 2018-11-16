@@ -1,5 +1,6 @@
 package com.example.alice.frogger;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
@@ -20,9 +21,9 @@ public class CarsLane extends ArrayList<Car> {
         }
     }
 
-    public void draw(Canvas c, Paint p) {
+    public void draw(Canvas c, Paint p, Bitmap carp) {
         for(Car car : this) {
-            car.draw(c, p);
+            car.draw(c, p, carp);
         }
     }
 
@@ -39,7 +40,7 @@ public class CarsLane extends ArrayList<Car> {
         } else {
             // moving left
             for(Car car : this) {
-                car.x -= speed;
+                car.x += speed;
                 if(car.x + car.w < 0)
                     car.x = Game.MAX_X + Game.GRID_SIZE;
             }
